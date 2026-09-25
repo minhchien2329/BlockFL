@@ -131,15 +131,3 @@ python ai_model/baseline_centralized.py --seed 4 --epochs 25
 ```
 
 Lưu ý nhỏ: `--epochs 25` ở đây là tính từ hồi `run_demo.py` còn để mặc định 5 epoch/round (5×5=25 cho ngang effort). Sau này đổi epoch mặc định của FL lên 10 rồi (tổng thành 50) mà quên chỉnh lại số 25 này, nên giờ 2 bên không còn ngang nhau nữa. Ai đụng vào phần so sánh baseline nhớ sửa lại `--epochs` cho khớp (= 5 × epoch/round hiện tại) trước khi lấy số bỏ vào báo cáo nha.
-
-## Đối chiếu với đề cương
-
-- **Tầng IoT:** `iot_code/data_partition.py` — 4 node, chia data non-IID.
-- **Tầng AI:** `ai_model/model.py` + `local_train.py` + `fedavg.py` — FedAvg chuẩn (McMahan 2017).
-- **Tầng Blockchain:** `FederatedAggregator.sol` — đăng ký node, nhận hash, aggregate, phát thưởng; đủ 3 event `WeightsSubmitted / ModelAggregated / RewardDistributed`.
-- **Kết nối:** `scripts/web3_interface.py` — Python gọi thẳng smart contract qua Web3.py.
-
-## Còn thiếu gì
-
-- Báo cáo PDF (10-15 trang) — chưa có trong repo này, để làm sau.
-- Rà lại code lần cuối + tập thuyết trình trước hôm bảo vệ.
