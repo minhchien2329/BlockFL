@@ -39,6 +39,14 @@ Trọng số thật (`.npy`) thì lưu ở máy (`ai_model/weights/`), lên chai
 | `run_demo.py` | Chạy full demo nhiều round, có thể tắt chain để test nhanh |
 | `dashboard/` | Web xem trực quan, đọc live từ contract |
 
+Đúng cấu trúc repo thầy yêu cầu trong file hướng dẫn:
+
+- `README.md` — cái file này, hướng dẫn cài đặt + chạy demo.
+- `/contracts` — mã nguồn Smart Contract (Solidity).
+- `/ai_model` — mã nguồn train AI + file trọng số.
+- `/iot_code` — mã nguồn giả lập IoT.
+- `Report_NhomXX.pdf` — báo cáo kỹ thuật chính thức (đang viết, chưa đưa vào repo).
+
 ## Cài đặt
 
 Cần Node.js ≥ 18 với npm, và Python ≥ 3.10.
