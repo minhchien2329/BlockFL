@@ -135,7 +135,7 @@ File `.env` đừng bao giờ push lên git (đã gitignore sẵn) — lỡ lộ
 ## So với train tập trung (không FL)
 
 ```bash
-python ai_model/baseline_centralized.py --seed 4 --epochs 25
+python ai_model/baseline_centralized.py --seed 4 --epochs 50
 ```
 
-Lưu ý nhỏ: `--epochs 25` ở đây là tính từ hồi `run_demo.py` còn để mặc định 5 epoch/round (5×5=25 cho ngang effort). Sau này đổi epoch mặc định của FL lên 10 rồi (tổng thành 50) mà quên chỉnh lại số 25 này, nên giờ 2 bên không còn ngang nhau nữa. Ai đụng vào phần so sánh baseline nhớ sửa lại `--epochs` cho khớp (= 5 × epoch/round hiện tại) trước khi lấy số bỏ vào báo cáo nha.
+`--epochs 50` = 5 round × 10 epoch/round của FL, để so effort ngang nhau. Đổi epoch mặc định của `run_demo.py` thì nhớ đổi luôn số này (= 5 × epoch/round mới) cho khớp.
