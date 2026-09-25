@@ -8,7 +8,7 @@ test va cung kien truc mo hinh.
 
 Chay:
     python ai_model/baseline_centralized.py
-    python ai_model/baseline_centralized.py --seed 42 --epochs 25
+    python ai_model/baseline_centralized.py --seed 42 --epochs 50
 """
 from __future__ import annotations
 
@@ -51,9 +51,9 @@ def train_centralized(X: np.ndarray, y: np.ndarray, epochs: int, lr: float,
 
 
 def run(n_nodes: int = 4, alpha: float = 0.4, seed: int = 7,
-        epochs: int = 25, lr: float = 0.05) -> dict:
-    """epochs=25 de so sanh cong bang voi FedAvg mac dinh (5 round x 5 epoch
-    local = 25 luot node duyet qua du lieu cua no)."""
+        epochs: int = 50, lr: float = 0.05) -> dict:
+    """epochs=50 de so sanh cong bang voi FedAvg mac dinh (5 round x 10 epoch
+    local = 50 luot node duyet qua du lieu cua no)."""
     parts = partition_non_iid(n_nodes=n_nodes, dirichlet_alpha=alpha, seed=seed)
 
     # Gom het du lieu train cua tung node lai thanh 1 tap duy nhat -
@@ -86,7 +86,7 @@ def main():
     ap.add_argument("--nodes", type=int, default=4)
     ap.add_argument("--alpha", type=float, default=0.4)
     ap.add_argument("--seed", type=int, default=7)
-    ap.add_argument("--epochs", type=int, default=25)
+    ap.add_argument("--epochs", type=int, default=50)
     ap.add_argument("--lr", type=float, default=0.05)
     args = ap.parse_args()
     run(args.nodes, args.alpha, args.seed, args.epochs, args.lr)
