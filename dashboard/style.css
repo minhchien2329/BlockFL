@@ -1,25 +1,25 @@
 :root {
-  /* bảng màu gốc (coolors.co) */
-  --sage-dark: #5d7b6f;
-  --sage: #a4c3a2;
-  --mint: #b0d4b8;
+  /* bảng màu chủ đạo — mapping theo màu xanh dương của logo HCMUTE (#2c3093) */
+  --sage-dark: #2c3093;
+  --sage: #a9b7ea;
+  --mint: #c4d0f5;
   --cream: #eae7d6;
   --pale-cyan: #d7f9fa;
 
   /* token giao diện — dẫn xuất từ bảng màu trên, có chỉnh độ đậm để đủ tương phản trên nền sáng */
   --bg: #fafafa;
   --panel: #ffffff;
-  --panel-2: #c3e8ee;
-  --table-tint: #eaf5f7;
+  --panel-2: #d3d9f6;
+  --table-tint: #eef1fb;
   --panel-3: #efece0;
-  --line: #dce6dc;
-  --line-soft: #e8f0e7;
-  --text: #2c3a33;
-  --muted: #5f7268;
-  --muted-2: #95a69c;
+  --line: #dbdff0;
+  --line-soft: #e9ebf7;
+  --text: #262c47;
+  --muted: #565f7f;
+  --muted-2: #8f96b3;
 
-  --accent: #4f6b60;
-  --accent-soft: #a4c3a233;
+  --accent: #2c3093;
+  --accent-soft: #2c309333;
   --green: #3f8f63;
   --green-soft: #3f8f6320;
   --amber: #ad7c4b;
@@ -28,17 +28,17 @@
   --purple-soft: #d7f9fa90;
 
   --radius: 12px;
-  --shadow: 0 1px 2px rgba(44, 58, 51, .06), 0 10px 24px -14px rgba(44, 58, 51, .22);
+  --shadow: 0 1px 2px rgba(38, 44, 71, .06), 0 10px 24px -14px rgba(38, 44, 71, .22);
 
-  /* sidebar toàn chiều dọc màn hình — nền đậm hơn màu #5D7B6F gốc một chút */
+  /* sidebar toàn chiều dọc màn hình — nền xanh dương đậm theo logo HCMUTE */
   --sidebar-w: 268px;
   --sidebar-w-collapsed: 78px;
-  --sidebar-bg: #32403a;
-  --sidebar-bg-hover: #435a4d;
-  --sidebar-bg-active: #29362f;
-  --sidebar-border: #4d6357;
+  --sidebar-bg: #1e2560;
+  --sidebar-bg-hover: #2d3780;
+  --sidebar-bg-active: #141a47;
+  --sidebar-border: #38408f;
   --sidebar-text: var(--cream);
-  --sidebar-text-dim: #b6c6ba;
+  --sidebar-text-dim: #b7bfe0;
 }
 
 * { box-sizing: border-box; }
@@ -69,10 +69,12 @@ body.collapsed .sidebar { width: var(--sidebar-w-collapsed); }
 }
 .sidebar-brand .brand-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .sidebar-brand .logo {
-  width: 38px; height: 38px; border-radius: 10px; flex: none;
-  background: linear-gradient(135deg, var(--sage), var(--mint));
+  width: 38px; height: 38px; border-radius: 50%; flex: none;
+  background: #fff;
   display: flex; align-items: center; justify-content: center; font-size: 18px;
+  overflow: hidden;
 }
+.sidebar-brand .logo img { width: 100%; height: 100%; object-fit: contain; }
 .sidebar-title { font-weight: 800; font-size: 17px; letter-spacing: -.02em; color: #fff; white-space: nowrap; overflow: hidden; }
 .collapse-btn {
   background: transparent; border: 1px solid var(--sidebar-border); color: var(--sidebar-text-dim);
@@ -112,6 +114,7 @@ body.collapsed .collapse-btn { transform: rotate(180deg); }
   --main-px: clamp(48px, 7vw, 130px);
   margin-left: var(--sidebar-w); padding: 36px var(--main-px) 0;
   transition: margin-left .18s ease;
+  min-height: 100vh; display: flex; flex-direction: column;
 }
 body.collapsed .main { margin-left: var(--sidebar-w-collapsed); }
 
@@ -268,14 +271,14 @@ table.dtable th { color: var(--muted); font-weight: 600; }
 
 /* ---------- Footer ---------- */
 footer {
-  color: #c3d3c9; font-size: 13px; text-align: left; margin: 40px calc(-1 * var(--main-px)) 0;
-  width: calc(100% + 2 * var(--main-px)); background: #17281c;
-  padding: 24px var(--main-px) 34px;
+  color: #c7cdea; font-size: 13px; text-align: left; margin: auto calc(-1 * var(--main-px)) 0;
+  width: calc(100% + 2 * var(--main-px)); background: #141a47;
+  padding: 24px var(--main-px) 34px; flex: none;
 }
 .foot-line { margin: 0 0 7px; }
 .foot-line:last-child { margin-bottom: 0; }
-.foot-line b { color: #f0f5ee; font-weight: 700; }
-.foot-disclaimer { max-width: 62ch; font-size: 12px; line-height: 1.65; color: #92a599; }
+.foot-line b { color: #f0f2fe; font-weight: 700; }
+.foot-disclaimer { max-width: 62ch; font-size: 12px; line-height: 1.65; color: #9aa2c9; }
 .err { color: #c0392b; }
 
 @media (max-width: 900px) {
@@ -436,7 +439,7 @@ a.tx:hover { text-decoration: underline; }
 /* ---------- Bảng điều khiển chạy demo ---------- */
 .runner { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
 #btn-run {
-  background: linear-gradient(135deg, #2fa563, #45cf82); box-shadow: 0 3px 12px -4px #2fa56388;
+  background: linear-gradient(135deg, #2c3093, #4a56c9); box-shadow: 0 3px 12px -4px #2c309388;
 }
 #btn-run:hover { filter: brightness(1.08); }
 #btn-run:disabled { background: var(--muted-2); box-shadow: none; }
